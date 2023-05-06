@@ -18,6 +18,16 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/Loading.js",
+    "components/Error.js",
+    "components/Form.js",
+    "components/List.jsx",
+    "components/Card.jsx",
+    "api/todos/route.js"
+  ],
   "exclude": ["node_modules"]
 }

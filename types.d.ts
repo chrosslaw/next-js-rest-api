@@ -1,3 +1,3 @@
-type Todo = {
-  kind: string;
+type subs = {
+  subs: list;
 };

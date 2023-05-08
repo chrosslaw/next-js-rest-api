@@ -12,7 +12,7 @@ const SubList = ({ subreddits }) => {
     subs.children.map((subreddit) => (
       <a
         key={subreddit.data.id}
-        className="bg-white h-20 font-semibold font-mono rounded-lg shadow-md m-1 p-1 flex flex-col text-xs justify-center items-center "
+        className="bg-white h-20 min-w-min  font-semibold font-mono text-center rounded-lg shadow-md m-1 p-1 flex flex-col text-xs justify-center items-center "
       >
         {` ${subreddit.data.display_name}`}
         <button className="h-16 w-16 p-1" type="button">

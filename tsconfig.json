@@ -30,7 +30,8 @@
     "api/todos/route.js",
     "pages/index.tsx",
     "pages/_document.js",
-    "pages/_app.js"
+    "pages/_app.js",
+    "components/Header.js"
   ],
   "exclude": ["node_modules"]
 }

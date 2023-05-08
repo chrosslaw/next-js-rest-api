@@ -20,7 +20,7 @@ export default function AsideBar({ baseUrl }) {
 
   return (
     <aside className="w-1/6 min-w-min">
-      <p className="bg-white h-10 font-bold font-mono text-lg rounded-lg shadow-md m-1 flex flex-col justify-center items-center p-1">
+      <p className="bg-black h-10 font-black font-mono text-white text-2xl rounded-lg shadow-md m-1 flex flex-col justify-center items-center p-1">
         Subreddits
       </p>
       <SubList subreddits={subreddits} />

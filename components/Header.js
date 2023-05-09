@@ -6,6 +6,7 @@ export default function Header({ setSearchTerm }) {
       <div className="h-44 w-44 ">
         <Image src="/logo.png" width={175} height={175} />
       </div>
+
       <form>
         <input
           id="search"

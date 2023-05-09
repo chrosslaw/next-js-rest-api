@@ -4,6 +4,7 @@ import axios from "axios";
 
 export default function AsideBar({ baseUrl }) {
   const [subreddits, setSubreddits] = useState("");
+
   useEffect(() => {
     getSubreddits();
   }, []);
@@ -19,11 +20,12 @@ export default function AsideBar({ baseUrl }) {
   };
 
   return (
-    <aside className="w-1/6 min-w-min">
-      <p className="bg-black h-10 font-black font-mono text-white text-2xl rounded-lg shadow-md m-1 flex flex-col justify-center items-center p-1">
+    <div className="w-2/12 min-w-min flex flex-row flex-wrap">
+      <p className="bg-black h-10 w-full font-bold font-mono text-white text-sm md:text-lg lg:text-xl rounded-lg shadow-md mt-1 flex items-center justify-center">
         Subreddits
       </p>
+
       <SubList subreddits={subreddits} />
-    </aside>
+    </div>
   );
 }

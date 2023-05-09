@@ -10,12 +10,12 @@ const SubList = ({ subreddits }) => {
     "There was an error"
   ) : subs ? (
     subs.children.map((subreddit) => (
-      <a
+      <li
         key={subreddit.data.id}
-        className="bg-white h-20 min-w-min  font-semibold font-mono text-center rounded-lg shadow-md m-1 p-1 flex flex-col text-xs justify-center items-center "
+        className="bg-white w-full min-w-fit font-semibold font-mono text-center rounded-lg shadow-md mt-1 pt-1 flex flex-col text-xs items-center "
       >
         {` ${subreddit.data.display_name}`}
-        <button className="h-16 w-16 p-1" type="button">
+        <button className="h-14 w-14 p-1" type="button">
           <img
             src={
               subreddit.data.icon_img ||
@@ -23,7 +23,7 @@ const SubList = ({ subreddits }) => {
             }
           />
         </button>
-      </a>
+      </li>
     ))
   ) : null;
 };

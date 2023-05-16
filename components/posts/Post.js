@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DashVideoPlayer from "../DashVideoPlayer";
 
 const Post = ({ post, setRedditPosts, setSearchTerm }) => {
   const {
@@ -6,7 +7,6 @@ const Post = ({ post, setRedditPosts, setSearchTerm }) => {
     is_self,
     selftext,
     is_video,
-    media,
     is_reddit_media_domain,
     title,
     author,
@@ -18,13 +18,14 @@ const Post = ({ post, setRedditPosts, setSearchTerm }) => {
     thumbnail,
     replies,
     permalink,
+    secure_media,
   } = post;
 
   //show/hide comments bool variable
   const [commentsShowing, setCommentsShowing] = useState(false);
   //returns a single post container with the author, title, media type and comments button
   return (
-    <div className="post-container">
+    <div className="flex flex-wrap flex-col justify-center place-content-center place-items-center text-center">
       <h2>{title}</h2>
       <p>
         <b>Post by: {author}</b>
@@ -40,12 +41,10 @@ const Post = ({ post, setRedditPosts, setSearchTerm }) => {
         <b>{subreddit_name_prefixed}</b>.
       </button>
 
-      <div className="media-container">
+      <div>
         {is_video ? (
-          <div className="video-container">
-            <video controls className="video">
-              <source type="video/mp4" src={media.reddit_video.fallback_url} />
-            </video>
+          <div className="flex flex-wrap flex-col justify-center align-middle text-center ">
+            <DashVideoPlayer videoUrl={secure_media.reddit_video.dash_url} />
           </div>
         ) : is_self ? (
           <div className="selftext-container">

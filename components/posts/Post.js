@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DashVideoPlayer from "../DashVideoPlayer";
 
-const Post = ({ post, setRedditPosts, setSearchTerm }) => {
+const Post = ({ post, setRedditss, setSearchTerm }) => {
   const {
     id,
     is_self,
@@ -25,7 +25,7 @@ const Post = ({ post, setRedditPosts, setSearchTerm }) => {
   const [commentsShowing, setCommentsShowing] = useState(false);
   //returns a single post container with the author, title, media type and comments button
   return (
-    <div className="flex flex-wrap flex-col justify-center place-content-center place-items-center text-center">
+    <div className="flex flex-wrap flex-col justify-center place-content-center place-items-center text-center p-2 m-2 border border-black rounded-lg bg-white">
       <h2>{title}</h2>
       <p>
         <b>Post by: {author}</b>

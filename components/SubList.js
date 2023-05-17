@@ -4,28 +4,32 @@ const SubList = ({ subreddits }) => {
   const { data: subs, error, isLoading } = subreddits;
 
   console.log(subs, error, isLoading);
-  return isLoading ? (
-    <Loading />
-  ) : error ? (
-    "There was an error"
-  ) : subs ? (
-    subs.children.map((subreddit) => (
-      <li
-        key={subreddit.data.id}
-        className="bg-white w-full min-w-fit font-semibold font-mono text-center rounded-lg shadow-md mt-1 pt-1 flex flex-col text-xs items-center "
-      >
-        {` ${subreddit.data.display_name}`}
-        <button className="h-14 w-14 p-1" type="button">
-          <img
-            src={
-              subreddit.data.icon_img ||
-              `https://robohash.org/${subreddit.data.display_name}`
-            }
-          />
-        </button>
-      </li>
-    ))
-  ) : null;
+  return (
+    <ul className="flex flex-row  flex-wrap md:flex-col place-content-evenly">
+      {isLoading ? (
+        <Loading />
+      ) : error ? (
+        "There was an error"
+      ) : subs ? (
+        subs.children.map((subreddit) => (
+          <li
+            key={subreddit.data.id}
+            className="bg-white w-1/3 sm:w-1/5 md:w-full font-semibold font-mono text-center rounded-lg shadow-md border shrink border-black  md:m-1 p-1 text-xs flex flex-col justify-center items-center"
+          >
+            <p className="tracking-tighter">{` ${subreddit.data.display_name}`}</p>
+            <button className="w-6 md:w-14" type="button">
+              <img
+                src={
+                  subreddit.data.icon_img ||
+                  `https://robohash.org/${subreddit.data.display_name}`
+                }
+              />
+            </button>
+          </li>
+        ))
+      ) : null}
+    </ul>
+  );
 };
 
 export default SubList;

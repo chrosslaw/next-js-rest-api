@@ -25,7 +25,7 @@ const Post = ({ post, setRedditss, setSearchTerm }) => {
   const [commentsShowing, setCommentsShowing] = useState(false);
   //returns a single post container with the author, title, media type and comments button
   return (
-    <div className="flex flex-wrap flex-col justify-center place-content-center place-items-center text-center p-2 m-2 border border-black rounded-lg bg-white">
+    <div className="flex flex-wrap flex-col justify-center place-content-center place-items-center text-center w-0.75 p-2 m-1 border shadow-md border-black rounded-lg bg-white">
       <h2>{title}</h2>
       <p>
         <b>Post by: {author}</b>
@@ -43,7 +43,7 @@ const Post = ({ post, setRedditss, setSearchTerm }) => {
 
       <div>
         {is_video ? (
-          <div className="flex flex-wrap flex-col justify-center align-middle text-center ">
+          <div className="flex flex-wrap flex-col justify-center text-center">
             <DashVideoPlayer videoUrl={secure_media.reddit_video.dash_url} />
           </div>
         ) : is_self ? (

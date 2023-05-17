@@ -20,8 +20,8 @@ export default function Main({ baseUrl, searchTerm, setSearchTerm }) {
   };
 
   return (
-    <div className="w-9/12 min-w-min flex flex-col ">
-      <p className="bg-black h-10 w-full font-black font-mono mt-1 ml-1 text-sm md:text-lg lg:text-xl text-white rounded-lg shadow-md flex flex-col text-center justify-center">
+    <div className="w-full md:w-9/12 flex flex-col mt-5 gap-1 relative place-content-center">
+      <p className="bg-gradient-to-r from-gray-600 to-gray-400 font-black font-mono text-xl text-white rounded-lg shadow-md flex flex-col text-center place-content-center">
         {searchTerm} Reddit Posts
       </p>
       <Posts

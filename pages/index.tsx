@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="max-w-screen-xl m-auto flex flex-wrap flex-row">
+      <div className="max-w-screen-xl flex flex-wrap flex-row justify-around relative">
         <Header setSearchTerm={setSearchTerm} />
         <AsideBar baseUrl={baseUrl} />
         <Main

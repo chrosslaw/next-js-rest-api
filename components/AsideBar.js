@@ -20,8 +20,8 @@ export default function AsideBar({ baseUrl }) {
   };
 
   return (
-    <div className="w-2/12 min-w-min flex flex-col flex-wrap">
-      <p className="bg-black h-10 w-full font-bold font-mono text-white text-sm md:text-lg lg:text-xl rounded-lg shadow-md mt-1 flex items-center justify-center">
+    <div className=" w-full md:w-2/12 flex flex-col flex-wrap  mt-5 gap-1 place-items-center relative">
+      <p className="bg-gradient-to-r from-gray-600 to-gray-400 w-full font-bold font-mono text-white text-xl rounded-lg shadow-md flex items-center justify-center">
         Subreddits
       </p>
 

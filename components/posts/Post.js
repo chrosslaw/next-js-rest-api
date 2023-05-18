@@ -49,12 +49,13 @@ const Post = ({ post, setRedditss, setSearchTerm }) => {
         ) : is_self ? (
           <div className="selftext-container">
             <p>
-              {selftext.includes("http")
+              {selftext}
+              {/* .includes("http")
                 ? selftext.slice(0, 100)
                 : selftext.length < 400
                 ? selftext
                 : `${selftext.slice(0, 300)}`}
-              ......
+              ...... */}
             </p>
             <b>
               <a href={url} target="_blank" rel="noreferrer">

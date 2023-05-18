@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SubList from "./SubList";
 import axios from "axios";
 
-export default function AsideBar({ baseUrl }) {
+export default function AsideBar({ baseUrl, setSearchTerm, setReddits }) {
   const [subreddits, setSubreddits] = useState("");
 
   useEffect(() => {
@@ -25,7 +25,11 @@ export default function AsideBar({ baseUrl }) {
         Subreddits
       </p>
 
-      <SubList subreddits={subreddits} />
+      <SubList
+        subreddits={subreddits}
+        setSearchTerm={setSearchTerm}
+        setReddits={setReddits}
+      />
     </div>
   );
 }

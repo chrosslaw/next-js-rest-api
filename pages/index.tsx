@@ -33,11 +33,11 @@ export default function Home() {
           setReddits={setReddits}
         />
         <Main
-          baseUrl={baseUrl}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           reddits={reddits}
           getReddits={getReddits}
+          setReddits={setReddits}
         />
       </div>
     </>

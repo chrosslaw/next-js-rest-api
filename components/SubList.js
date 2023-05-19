@@ -5,7 +5,7 @@ const SubList = ({ subreddits, setSearchTerm, setReddits }) => {
 
   console.log(subs, error, isLoading);
   return (
-    <ul className="w-full flex flex-row flex-wrap md:flex-col place-content-evenly">
+    <ul className="w-full flex flex-row flex-wrap md:flex-col place-content-center">
       {isLoading ? (
         <Loading />
       ) : error ? (
@@ -14,7 +14,7 @@ const SubList = ({ subreddits, setSearchTerm, setReddits }) => {
         subs.children.map((subreddit) => (
           <li
             key={subreddit.data.id}
-            className="bg-white w-1/3 sm:w-1/5 md:w-full font-semibold font-mono text-center rounded-lg shadow-lg border border-black  md:m-1 sm:p-1 text-xs flex flex-col justify-center items-center"
+            className="bg-white w-1/3 sm:w-1/5 md:w-full font-semibold font-mono text-center rounded-lg shadow-lg border border-black min-w-min md:m-1 p-1 text-xs flex flex-col flex-wrap justify-start items-center"
           >
             <p className="tracking-tighter">{` ${subreddit.data.display_name}`}</p>
             <button
@@ -22,6 +22,10 @@ const SubList = ({ subreddits, setSearchTerm, setReddits }) => {
               type="button"
               onClick={() => {
                 setSearchTerm(subreddit.data.display_name);
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth", // Add smooth scrolling behavior if desired
+                });
               }}
             >
               <img

@@ -6,7 +6,7 @@ const DashVideoPlayer = ({ videoUrl }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const dashjs = require("dashjs").MediaPlayer().create();
-      dashjs.initialize(videoRef.current, videoUrl, true);
+      dashjs.initialize(videoRef.current, videoUrl, false);
     }
   }, [videoUrl]);
 

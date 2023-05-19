@@ -2,7 +2,7 @@ import Loading from "../Loading";
 
 import Post from "./post";
 
-const Posts = ({ getReddits, setSearchTerm, reddits }) => {
+const Posts = ({ getReddits, setSearchTerm, reddits, setReddits }) => {
   const { data: posts, error, isLoading } = reddits;
   console.log(posts, error, isLoading);
 
@@ -18,6 +18,7 @@ const Posts = ({ getReddits, setSearchTerm, reddits }) => {
         post={post.data}
         setSearchTerm={setSearchTerm}
         getReddits={getReddits}
+        setReddits={setReddits}
       />
     ))
   ) : null;

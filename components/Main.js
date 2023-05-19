@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import Posts from "./posts/Posts";
 
 export default function Main({
-  baseUrl,
   searchTerm,
   setSearchTerm,
+  setReddits,
   reddits,
   getReddits,
 }) {
@@ -19,6 +19,7 @@ export default function Main({
         reddits={reddits}
         setSearchTerm={setSearchTerm}
         getReddits={getReddits}
+        setReddits={setReddits}
       />
     </div>
   );

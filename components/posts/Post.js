@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DashVideoPlayer from "../DashVideoPlayer";
 
-const Post = ({ post, setRedditss, setSearchTerm }) => {
+const Post = ({ post, setSearchTerm, getReddits }) => {
   const {
     id,
     is_self,
@@ -34,8 +34,8 @@ const Post = ({ post, setRedditss, setSearchTerm }) => {
       <button
         onClick={() => {
           //if search term is currently used, clear it out. Then query the clicked post name
-          setSearchTerm("");
-          setRedditPosts(subreddit);
+          setSearchTerm(subreddit);
+          getReddits;
         }}
       >
         <b>{subreddit_name_prefixed}</b>.
@@ -45,23 +45,6 @@ const Post = ({ post, setRedditss, setSearchTerm }) => {
         {is_video ? (
           <div className="flex flex-wrap flex-col justify-center text-center">
             <DashVideoPlayer videoUrl={secure_media.reddit_video.dash_url} />
-          </div>
-        ) : is_self ? (
-          <div className="selftext-container">
-            <p>
-              {selftext}
-              {/* .includes("http")
-                ? selftext.slice(0, 100)
-                : selftext.length < 400
-                ? selftext
-                : `${selftext.slice(0, 300)}`}
-              ...... */}
-            </p>
-            <b>
-              <a href={url} target="_blank" rel="noreferrer">
-                <em>Read more here.</em>
-              </a>
-            </b>
           </div>
         ) : is_reddit_media_domain ? (
           <div className="post-image">

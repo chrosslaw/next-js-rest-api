@@ -7,7 +7,7 @@ export default function Main({
   searchTerm,
   setSearchTerm,
   reddits,
-  setReddits,
+  getReddits,
 }) {
   return (
     <div className="w-full md:w-9/12 flex flex-col mt-5 gap-1 relative place-content-center">
@@ -18,6 +18,7 @@ export default function Main({
         searchTerm={searchTerm}
         reddits={reddits}
         setSearchTerm={setSearchTerm}
+        getReddits={getReddits}
       />
     </div>
   );

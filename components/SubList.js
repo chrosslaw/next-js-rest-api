@@ -22,7 +22,6 @@ const SubList = ({ subreddits, setSearchTerm, setReddits }) => {
               type="button"
               onClick={() => {
                 setSearchTerm(subreddit.data.display_name);
-                setReddits("");
               }}
             >
               <img

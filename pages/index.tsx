@@ -5,13 +5,13 @@ import AsideBar from "../components/AsideBar";
 import axios from "axios";
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [reddits, setReddits] = useState("Popular");
+  const [searchTerm, setSearchTerm] = useState("Popular");
+  const [reddits, setReddits] = useState([]);
   const baseUrl = "https://api.reddit.com";
 
   const getReddits = () => {
     axios
-      .get(`${baseUrl}/r/${searchTerm || reddits}`)
+      .get(`${baseUrl}/r/${searchTerm}`)
       .then((response) => {
         const redditPosts = response.data;
         setReddits(redditPosts);
@@ -21,7 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     getReddits();
-  }, []);
+  }, [searchTerm]);
 
   return (
     <>
@@ -37,7 +37,7 @@ export default function Home() {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           reddits={reddits}
-          setReddits={setReddits}
+          getReddits={getReddits}
         />
       </div>
     </>

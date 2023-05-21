@@ -18,7 +18,6 @@ const Post = ({ post, setSearchTerm }) => {
     permalink,
     secure_media,
   } = post;
-
   //show/hide comments bool variable
   const [commentsShowing, setCommentsShowing] = useState(false);
   //returns a single post container with the author, title, media type and comments button
@@ -64,7 +63,6 @@ const Post = ({ post, setSearchTerm }) => {
 
       <button
         type="button"
-        className="commentsButton"
         onClick={() => {
           setCommentsShowing(!commentsShowing);
         }}

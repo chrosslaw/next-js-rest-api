@@ -4,7 +4,6 @@ import Post from "./post";
 
 const Posts = ({ getReddits, setSearchTerm, reddits, setReddits }) => {
   const { data: posts, error, isLoading } = reddits;
-  console.log(posts, error, isLoading);
 
   return error ? (
     "There was an error."
@@ -17,7 +16,6 @@ const Posts = ({ getReddits, setSearchTerm, reddits, setReddits }) => {
         key={post.data.id}
         post={post.data}
         setSearchTerm={setSearchTerm}
-        getReddits={getReddits}
         setReddits={setReddits}
       />
     ))

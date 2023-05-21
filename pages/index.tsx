@@ -3,7 +3,7 @@ import Main from "../components/Main";
 import Header from "../components/Header";
 import AsideBar from "../components/AsideBar";
 import axios from "axios";
-import ScrollToTopButton from "../components/ScrollToTopButton";
+// import ScrollToTopButton from "../components/ScrollToTopButton";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("Popular");
@@ -40,7 +40,7 @@ export default function Home() {
           getReddits={getReddits}
           setReddits={setReddits}
         />
-        <ScrollToTopButton />
+        {/* <ScrollToTopButton /> */}
       </div>
     </>
   );

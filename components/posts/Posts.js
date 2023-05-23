@@ -7,7 +7,7 @@ const Posts = ({ setSearchTerm, reddits, setReddits }) => {
 
   return (
     <div>
-      <div className="flex flex-row justify-around">
+      <div className="flex flex-row justify-around border border-black rounded-lg bg-white p-2 mb-2">
         <a className="hover:underline bg-gradient-to-r from-blue-600 to-gray-400 w-1/3 md:w-1/4 font-semibold font-mono text-center text-white rounded-lg shadow-lg border border-black min-w-min p-1 text-lg flex flex-col flex-wrap place-items-center">
           <button
             className="w-full"
@@ -19,7 +19,7 @@ const Posts = ({ setSearchTerm, reddits, setReddits }) => {
             Popular
           </button>
         </a>
-        <a className="hover:underline bg-gradient-to-r from-red-600 to-gray-400 w-1/3 md:w-1/4 font-semibold font-mono text-center text-white rounded-lg shadow-lg border border-black min-w-min p-1 text-lg flex flex-col flex-wrap">
+        <a className="mx-1 hover:underline bg-gradient-to-r from-red-600 to-gray-400 w-1/3 md:w-1/4 font-semibold font-mono text-center text-white rounded-lg shadow-lg border border-black min-w-min p-1 text-lg flex flex-col flex-wrap">
           <button
             className="w-full"
             type="button"

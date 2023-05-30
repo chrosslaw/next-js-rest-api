@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DashVideoPlayer from "../DashVideoPlayer";
+import Comments from "../comments/Comments";
 
 const Post = ({ post, setSearchTerm }) => {
   const {
@@ -22,9 +23,9 @@ const Post = ({ post, setSearchTerm }) => {
   const [commentsShowing, setCommentsShowing] = useState(false);
   //returns a single post container with the author, title, media type and comments button
   return (
-    <div className="container mx-auto flex flex-wrap flex-col content-center justify-center place-content-center place-items-center text-center w-0.75 p-2 m-1 border shadow-md border-black rounded-lg bg-white">
+    <div className="container flex flex-wrap flex-col place-content-center text-center w-0.75 p-2 mb-2 border shadow-md border-black rounded-lg bg-white">
       <p className="text-2xl m-3">{title}</p>
-      <div className="flex flex-row m-1 place-content-center justify-center place-items-center text-center">
+      <div className="flex flex-row m-1 place-content-center justify-center text-center">
         <img className="h-8 w-8" src={`https://robohash.org/${author}`} />
         <p>Post by: {author}</p>
       </div>
@@ -32,11 +33,11 @@ const Post = ({ post, setSearchTerm }) => {
       <button
         className="m-1 text-lg underline hover:underline-offset-4"
         onClick={() => {
-          //if search term is currently used, clear it out. Then query the clicked post name
+          //set search term to the clicked post name
           setSearchTerm(subreddit);
           window.scrollTo({
             top: 0,
-            behavior: "smooth", // Add smooth scrolling behavior if desired
+            behavior: "smooth", // Add smooth scrolling behavior
           });
         }}
       >

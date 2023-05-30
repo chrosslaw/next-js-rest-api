@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="container mx-auto max-w-screen-xl flex flex-wrap justify-around relative">
+      <div className="container mx-auto max-w-screen-xl flex flex-wrap justify-around ">
         <Header setSearchTerm={setSearchTerm} />
         <AsideBar
           baseUrl={baseUrl}

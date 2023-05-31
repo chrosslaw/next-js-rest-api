@@ -7,7 +7,7 @@ const SubList = ({ subreddits, setSearchTerm }) => {
         ? subreddits.data.children.map((subreddit) => (
             <a
               key={subreddit.data.id}
-              className="bg-white w-1/3 sm:w-1/5 md:w-full font-semibold font-mono text-center rounded-lg shadow-lg border border-black min-w-min md:m-1 p-1 md:text-sm text-xs flex flex-col flex-wrap justify-start items-center"
+              className="bg-white w-1/3 sm:w-1/5 md:w-full mt-1 font-semibold font-mono text-center rounded-lg shadow-lg border border-black min-w-min p-1 md:text-sm text-xs flex flex-col flex-wrap justify-start items-center"
             >
               <p className="tracking-tighter">{` ${subreddit.data.display_name}`}</p>
               <button

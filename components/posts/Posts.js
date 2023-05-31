@@ -29,10 +29,9 @@ const Posts = ({ setSearchTerm, reddits, setReddits }) => {
   };
 
   return (
-    // Popular buttons
-    <div>
-      <div className="flex flex-row place-content-center  border-black rounded-lg bg-white p-2 mb-2">
-        <a className="hover:underline bg-gradient-to-r from-blue-600 to-gray-400 w-1/3 md:w-1/4 font-semibold font-mono text-center text-white rounded-lg shadow-lg border border-black min-w-min p-1 text-lg flex flex-col flex-wrap place-items-center">
+    <div className="flex flex-col place-items-center m-1 p-1">
+      <div className="flex place-content-center justify-around border-black rounded-lg bg-white p-2 mb-2 w-full">
+        <a className="hover:underline bg-gradient-to-r from-blue-600 to-gray-400 w-1/3 font-semibold font-mono text-center text-white text-xl rounded-lg shadow-lg border border-black min-w-min p-1 flex flex-col flex-wrap">
           <button
             className="w-full"
             type="button"
@@ -43,7 +42,7 @@ const Posts = ({ setSearchTerm, reddits, setReddits }) => {
             Popular
           </button>
         </a>
-        <a className="mx-1 hover:underline bg-gradient-to-r from-red-600 to-gray-400 w-1/3 md:w-1/4 font-semibold font-mono text-center text-white rounded-lg shadow-lg border border-black min-w-min p-1 text-lg flex flex-col flex-wrap">
+        <a className="hover:underline bg-gradient-to-r mx-1 from-red-600 to-gray-400 w-1/3 font-semibold font-mono text-center text-white rounded-lg shadow-lg border border-black min-w-min p-1 text-xl flex flex-col flex-wrap">
           <button
             className="w-full"
             type="button"
@@ -54,7 +53,7 @@ const Posts = ({ setSearchTerm, reddits, setReddits }) => {
             Hot
           </button>
         </a>
-        <a className="hover:underline bg-gradient-to-r from-yellow-600 to-gray-400 w-1/3 md:w-1/4 font-semibold font-mono text-center text-white rounded-lg shadow-lg border border-black min-w-min p-1 text-lg flex flex-col flex-wrap">
+        <a className="hover:underline bg-gradient-to-r from-yellow-600 to-gray-400 w-1/3 font-semibold font-mono text-center text-white rounded-lg shadow-lg border border-black min-w-min p-1 text-xl flex flex-col flex-wrap">
           <button
             className="w-full"
             type="button"

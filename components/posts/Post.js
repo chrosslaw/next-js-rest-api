@@ -21,6 +21,7 @@ const Post = ({ post, setSearchTerm }) => {
   } = post;
   //show/hide comments bool variable
   const [commentsShowing, setCommentsShowing] = useState(false);
+
   //returns a single post container with the author, title, media type and comments button
   return (
     <div className="container flex flex-wrap flex-col place-content-center text-center w-0.75 p-2 mb-2 border shadow-md border-black rounded-lg bg-white">

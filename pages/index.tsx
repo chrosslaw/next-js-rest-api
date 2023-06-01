@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import Main from "../components/Main";
 import Header from "../components/Header";
-import AsideBar from "../components/AsideBar";
+import AsideBar from "../components/subs/AsideBar";
 import axios from "axios";
-// import ScrollToTopButton from "../components/ScrollToTopButton";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("Popular");
@@ -13,6 +12,16 @@ export default function Home() {
   const getReddits = () => {
     axios
       .get(`${baseUrl}/r/${searchTerm}`)
+      .then((response) => {
+        const redditPosts = response.data;
+        setReddits(redditPosts);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
+
+  const getPostComments = (permalink: string) => {
+    axios
+      .get(`${baseUrl}${permalink}`)
       .then((response) => {
         const redditPosts = response.data;
         setReddits(redditPosts);

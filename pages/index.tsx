@@ -19,16 +19,6 @@ export default function Home() {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-  const getPostComments = (permalink: string) => {
-    axios
-      .get(`${baseUrl}${permalink}`)
-      .then((response) => {
-        const redditPosts = response.data;
-        setReddits(redditPosts);
-      })
-      .catch((error) => console.error(`Error: ${error}`));
-  };
-
   useEffect(() => {
     getReddits();
   }, [searchTerm]);
@@ -46,8 +36,8 @@ export default function Home() {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           reddits={reddits}
-          getReddits={getReddits}
           setReddits={setReddits}
+          baseUrl={baseUrl}
         />
         {/* <ScrollToTopButton /> */}
       </div>

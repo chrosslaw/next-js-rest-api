@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DashVideoPlayer from "../DashVideoPlayer";
 import Comments from "../comments/Comments";
+import axios from "axios";
 
-const Post = ({ post, setSearchTerm }) => {
+const Post = ({ post, setSearchTerm, baseUrl }) => {
   const {
     id,
     is_video,
@@ -19,8 +20,24 @@ const Post = ({ post, setSearchTerm }) => {
     permalink,
     secure_media,
   } = post;
+
   //show/hide comments bool variable
   const [commentsShowing, setCommentsShowing] = useState(false);
+  const [commentList, setCommentList] = useState([]);
+
+  const getPostComments = () => {
+    axios
+      .get(`${baseUrl}${post.permalink}`)
+      .then((response) => {
+        const newList = response.data[1];
+        setCommentList(newList);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
+
+  useEffect(() => {
+    getPostComments();
+  }, [permalink]);
 
   //returns a single post container with the author, title, media type and comments button
   return (
@@ -80,11 +97,18 @@ const Post = ({ post, setSearchTerm }) => {
         //if commmentsShowing is false, this section below is not visible
         commentsShowing && (
           <div>
-            <Comments key={id} post={post} replies={replies} depth={0} />
+            <Comments
+              key={id}
+              baseUrl={baseUrl}
+              permalink={permalink}
+              replies={replies}
+              depth={0}
+              commentList={commentList}
+            />
             <div>
               <b>
                 <a
-                  href={`https://reddit.com${permalink}`}
+                  href={`${baseUrl}${permalink}`}
                   target="_blank"
                   rel="noreferrer"
                 >

@@ -5,7 +5,8 @@ export default function Main({
   setSearchTerm,
   setReddits,
   reddits,
-  getReddits,
+
+  baseUrl,
 }) {
   return (
     <div className=" w-full md:basis-9/12 flex flex-col mt-5 m-1 relative place-items-center ">
@@ -16,8 +17,8 @@ export default function Main({
         searchTerm={searchTerm}
         reddits={reddits}
         setSearchTerm={setSearchTerm}
-        getReddits={getReddits}
         setReddits={setReddits}
+        baseUrl={baseUrl}
       />
     </div>
   );

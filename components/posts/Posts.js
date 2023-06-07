@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Loading from "../Loading";
 import Post from "./post";
 import { FaArrowUp } from "react-icons/fa";
+import axios from "axios";
 
-const Posts = ({ setSearchTerm, reddits, setReddits }) => {
+const Posts = ({ setSearchTerm, reddits, setReddits, baseUrl }) => {
   const { data: posts, error, isLoading } = reddits;
   const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
   const [isVisible, setIsVisible] = useState(false);
@@ -65,20 +66,19 @@ const Posts = ({ setSearchTerm, reddits, setReddits }) => {
           </button>
         </a>
       </div>
-      {error ? (
-        "There was an error."
-      ) : isLoading ? (
-        <Loading />
-      ) : posts ? ( // Display the search list posts or the selected posts.
-        posts.children.map((post) => (
-          <Post
-            key={post.data.id}
-            post={post.data}
-            setSearchTerm={setSearchTerm}
-            setReddits={setReddits}
-          />
-        ))
-      ) : null}
+      {isLoading
+        ? "Loading.."
+        : posts // Display the search list posts or the selected posts.
+        ? posts.children.map((post) => (
+            <Post
+              key={post.data.id}
+              post={post.data}
+              setSearchTerm={setSearchTerm}
+              setReddits={setReddits}
+              baseUrl={baseUrl}
+            />
+          ))
+        : null}
       {isVisible && (
         <button
           className="fixed bg-blue-500 hover:bg-red-400 bottom-10 left-10 p-2 md:p-4 border rounded-lg"

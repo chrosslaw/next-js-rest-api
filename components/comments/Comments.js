@@ -24,12 +24,15 @@ const Comments = ({ permalink, baseUrl, replies, depth, commentList }) => {
 
   //return 6 comments(See apiSlice), along with two replies, and those replies as well.
   return (
-    <div>
+    <div className="flex flex-col place-items-center border border-black p-2 relative">
       {commentList !== undefined &&
         commentList.data.children.map((comment) => (
-          <div key={comment.data.id}>
+          <div
+            key={comment.data.id}
+            className="flex flex-col min-w-full place-items-center border-4 border-black p-2"
+          >
             <Reply reply={comment.data} key={comment.data.id} />
-            <div className={`replies reply-depth-${depth}`}>
+            <div className="flex flex-col min-w-full place-items-center border-4 border-black p-2 m-1">
               {/*only get the list of two child elements*/}
               {(comment.data.replies
                 ? getReplies(comment.data.replies.data.children)

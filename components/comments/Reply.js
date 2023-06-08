@@ -12,7 +12,9 @@ const Reply = ({ reply }) => {
 
         {score}
       </div>
-      <p>{body}</p>
+      <p className="flex flex-col place-items-center border border-black p-2 min-w-full">
+        {body}
+      </p>
     </div>
   );
 };

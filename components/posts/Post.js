@@ -42,11 +42,11 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
   //returns a single post container with the author, title, media type and comments button
   return (
     <div className="container flex flex-wrap flex-col place-content-center text-center w-0.75 p-2 mb-2 border shadow-md border-black rounded-lg bg-white">
-      <p className="text-2xl m-3">{title}</p>
       <div className="flex flex-row m-1 place-content-center justify-center text-center">
         <img className="h-8 w-8" src={`https://robohash.org/${author}`} />
-        <p>Post by: {author}</p>
+        <p className="font-bold">Post by {author}</p>
       </div>
+      <p className="text-2xl m-3">{title}</p>
 
       <button
         className="m-1 text-lg underline hover:underline-offset-4"
@@ -81,22 +81,21 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
       </div>
 
       <button
+        className="font-bold border border-black p-1 rounded-md bg-orange-200 hover:bg-orange-100"
         type="button"
         onClick={() => {
           setCommentsShowing(!commentsShowing);
         }}
       >
-        <b>
-          {commentsShowing
-            ? "^ Hide Comments ^"
-            : `${num_comments} Total Comments`}
-        </b>
+        {commentsShowing
+          ? "^ Hide Comments ^"
+          : `Click here to see the most popular comments out of ${num_comments} total comments`}
       </button>
 
       {
         //if commmentsShowing is false, this section below is not visible
         commentsShowing && (
-          <div>
+          <div className="flex flex-col place-content-center place-items-center">
             <Comments
               key={id}
               baseUrl={baseUrl}
@@ -107,14 +106,15 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
             />
             <div>
               <b>
-                <a
+                <button
+                  className="font-bold border border-black p-1 rounded-md bg-orange-200 hover:bg-orange-100"
                   href={`${baseUrl}${permalink}`}
                   target="_blank"
                   rel="noreferrer"
                 >
                   Click here to comment or see the full list of comments at the
                   source.
-                </a>
+                </button>
               </b>
             </div>
           </div>

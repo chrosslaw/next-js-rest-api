@@ -16,7 +16,6 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
     is_gallery,
     num_comments,
     thumbnail,
-    replies,
     permalink,
     secure_media,
   } = post;
@@ -29,7 +28,9 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
     axios
       .get(`${baseUrl}${post.permalink}`)
       .then((response) => {
-        const newList = response.data[1];
+        const newList = response.data[1].data.children
+          .sort((a, b) => b.data.score - a.data.score)
+          .slice(0, 20);
         setCommentList(newList);
       })
       .catch((error) => console.error(`Error: ${error}`));
@@ -75,7 +76,7 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
           </a>
         ) : (
           <a href={url} target="_blank" rel="noreferrer">
-            <b>Check it out here </b>
+            <b>Check it out at the source!</b>
           </a>
         )}
       </div>
@@ -100,7 +101,6 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
               key={id}
               baseUrl={baseUrl}
               permalink={permalink}
-              replies={replies}
               depth={0}
               commentList={commentList}
             />
@@ -112,8 +112,7 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Click here to comment or see the full list of comments at the
-                  source.
+                  Click here to reply and comment at the source.
                 </button>
               </b>
             </div>

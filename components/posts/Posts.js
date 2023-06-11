@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import Loading from "../Loading";
 import Post from "./post";
 import { FaArrowUp } from "react-icons/fa";
-import axios from "axios";
 
 const Posts = ({ setSearchTerm, reddits, setReddits, baseUrl }) => {
-  const { data: posts, error, isLoading } = reddits;
+  const { data: posts, isLoading } = reddits;
   const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
   const [isVisible, setIsVisible] = useState(false);
 

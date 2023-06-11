@@ -5,7 +5,6 @@ export default function Main({
   setSearchTerm,
   setReddits,
   reddits,
-
   baseUrl,
 }) {
   return (

@@ -5,7 +5,7 @@ const Comment = ({ reply }) => {
   //displays comments or replies along with their score
   return (
     <div>
-      <div className="flex place-content-center border border-black rounded-md ">
+      <div className="flex place-content-center border border-black rounded-md w-full">
         <img src={`https://robohash.org/${author}`} className="w-8 h-8 mr-1 " />
 
         <p className="font-bold">{author}</p>

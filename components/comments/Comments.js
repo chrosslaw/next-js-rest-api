@@ -2,12 +2,11 @@ import Comment from "./Comment";
 
 const Comments = ({ commentList }) => {
   //replies is passed as a prop in the getReplies function.
-  console.log("!!!!!!!!!", commentList);
 
   commentList.filter((comment) => comment.data.score > 50);
   //return 6 comments(See apiSlice), along with two replies, and those replies as well.
   return (
-    <div className="flex flex-col place-items-center border p-1 rounded-md m-1 max-w-md relative">
+    <div className="flex flex-col place-items-center border p-1 rounded-md m-1 max-w-lg relative">
       {commentList !== undefined &&
         commentList.map((comment) => (
           <div

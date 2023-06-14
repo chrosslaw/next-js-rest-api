@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Main from "../components/Main";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import AsideBar from "../components/subs/AsideBar";
 import axios from "axios";
 
@@ -39,7 +40,7 @@ export default function Home() {
           setReddits={setReddits}
           baseUrl={baseUrl}
         />
-        {/* <ScrollToTopButton /> */}
+        <Footer />
       </div>
     </>
   );

@@ -18,9 +18,11 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
     thumbnail,
     permalink,
     secure_media,
+    is_self,
+    selftext,
   } = post;
 
-  //show/hide comments bool variable
+  // show/hide comments bool variable
   const [commentsShowing, setCommentsShowing] = useState(false);
   const [commentList, setCommentList] = useState([]);
 
@@ -43,14 +45,8 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
   //returns a single post container with the author, title, media type and comments button
   return (
     <div className="container flex flex-wrap flex-col place-content-center text-center w-0.75 p-2 mb-2 border shadow-md border-black rounded-lg bg-white">
-      <div className="flex flex-row m-1 place-content-center justify-center text-center">
-        <img className="h-8 w-8" src={`https://robohash.org/${author}`} />
-        <p className="font-bold">Post by {author}</p>
-      </div>
-      <p className="text-2xl m-3">{title}</p>
-
       <button
-        className="m-1 text-lg underline hover:underline-offset-4"
+        className="m-1 p-1 text-lg underline hover:underline-offset-4 bg-black text-white rounded-sm"
         onClick={() => {
           //set search term to the clicked post name
           setSearchTerm(subreddit);
@@ -62,6 +58,11 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
       >
         <b>{subreddit_name_prefixed}</b>
       </button>
+      <div className="flex flex-row m-1 place-content-center justify-center text-center">
+        <img className="h-8 w-8" src={`https://robohash.org/${author}`} />
+        <p className="font-bold">Post by {author}</p>
+      </div>
+      <p className="text-2xl m-3">{title}</p>
 
       <div className="container mx-auto flex flex-wrap flex-col place-items-center text-center p-3">
         {is_video ? (
@@ -74,9 +75,22 @@ const Post = ({ post, setSearchTerm, baseUrl }) => {
           <a href={url}>
             <img src={thumbnail} alt={subreddit} />
           </a>
+        ) : is_self ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-blue-600"
+          >
+            {selftext.includes("http")
+              ? `${selftext.slice(0, 150)}...`
+              : selftext}
+          </a>
         ) : (
           <a href={url} target="_blank" rel="noreferrer">
-            <b>Check it out at the source!</b>
+            <p className="bg-amber-200 font-bold p-1 rounded-md">
+              Check it out at the source!
+            </p>
           </a>
         )}
       </div>

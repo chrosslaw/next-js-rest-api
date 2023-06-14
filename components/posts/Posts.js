@@ -79,7 +79,7 @@ const Posts = ({ setSearchTerm, reddits, setReddits, baseUrl }) => {
         : null}
       {isVisible && (
         <button
-          className="fixed bg-blue-500 hover:bg-red-400 bottom-10 left-10 p-2 md:p-4 border rounded-lg"
+          className="fixed bg-blue-500 hover:bg-red-400 bottom-10 right-10 p-2 md:p-4 border rounded-lg"
           onClick={scrollToTop}
         >
           <FaArrowUp />

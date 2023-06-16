@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Post from "./post";
+import Post from "./Post";
 import { FaArrowUp } from "react-icons/fa";
 
 const Posts = ({ setSearchTerm, reddits, setReddits, baseUrl }) => {
